@@ -9,7 +9,7 @@ public class Startup {
 	
 	public static void main(String[] args) {
 		String[] configLocations = {
-			"/spring/appconfig/beans.xml"
+			"/beans.xml"
 		};
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(configLocations);
 		

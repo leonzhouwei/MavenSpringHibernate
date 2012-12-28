@@ -13,7 +13,7 @@ public class UserServiceTest {
 	@Test
 	public void testAdd() throws Exception {
 		String[] configLocations = {
-			"/spring/appconfig/beans.xml"
+			"/beans.xml"
 		};
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(configLocations);
 		
