@@ -2,7 +2,6 @@ package com.bjsxt.dao.impl;
 
 import javax.annotation.Resource;
 
-import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Component;
 
