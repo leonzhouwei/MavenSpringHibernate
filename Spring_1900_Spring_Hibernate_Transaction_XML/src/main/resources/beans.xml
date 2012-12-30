@@ -27,9 +27,9 @@
 
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="annotatedClasses">
+		<property name="packagesToScan">
 			<list>
-				<value>com.bjsxt.model.Account</value>
+				<value>com.bjsxt.model</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
