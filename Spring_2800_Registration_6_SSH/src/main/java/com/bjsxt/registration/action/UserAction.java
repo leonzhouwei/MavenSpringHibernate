@@ -1,12 +1,16 @@
 package com.bjsxt.registration.action;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import com.bjsxt.registration.model.User;
 import com.bjsxt.registration.service.UserManager;
 import com.opensymphony.xwork2.ActionSupport;
 
+@Component("user")
+@Scope("Prototype")
 public class UserAction extends ActionSupport {
 	
 	private String username;
@@ -15,15 +19,11 @@ public class UserAction extends ActionSupport {
 	
 	private UserManager um;
 	
-	public UserAction() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
-		um = (UserManager)ctx.getBean("userManager");
-	}
-	
 	public UserManager getUm() {
 		return um;
 	}
 
+	@Resource(name="userManager")
 	public void setUm(UserManager um) {
 		this.um = um;
 	}
