@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Account {
 	
 	private long id;
-	private String name;
+	private String username;
 	private String password;
 	
 	@Id
@@ -24,12 +24,12 @@ public class Account {
 		this.id = id;
 	}
 	
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	public String getPassword() {
@@ -42,7 +42,7 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return name;
+		return username;
 	}
 	
 }

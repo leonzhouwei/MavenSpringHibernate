@@ -14,19 +14,18 @@ public class UserServiceTest {
 	@Test
 	public void testAdd() throws Exception {
 		String[] configLocations = {
-			"/beans.xml"
+			"/spring/appconfig/applicationContext.xml"
 		};
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(configLocations);
 		
 		AccountService service = (AccountService)ctx.getBean("accountService");
 		System.out.println(service.getClass());
 		Account account = new Account();
-		Date date = new Date();
-		String name = date.toString();
-		String password = name;
-		account.setName(name);
+		String username = "admin";
+		String password = username;
+		account.setUsername(username);
 		account.setPassword(password);
-		System.out.println("new account to create is " + account.getName());
+		System.out.println("new account to create is " + account.getUsername());
 		service.add(account);
 	}
 
