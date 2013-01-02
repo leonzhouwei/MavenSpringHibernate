@@ -21,7 +21,7 @@ public class AccountService {
 		return accountDao;
 	}
 
-	@Resource(name = "accountDao")
+	@Resource(name="accountDao")
 	public void setAccountDao(AccountDao accountDao) {
 		this.accountDao = accountDao;
 	}

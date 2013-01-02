@@ -3,8 +3,6 @@ package com.bjsxt.dao.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.bjsxt.dao.AccountDao;
@@ -19,7 +17,6 @@ public class AccountDaoImpl implements AccountDao {
 		return hibernateTemplate;
 	}
 
-	@Resource
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}

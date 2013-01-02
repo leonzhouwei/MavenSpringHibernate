@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.bjsxt.registration.dao.AccountDaoIf;
@@ -43,7 +41,6 @@ public class AccountDaoImpl implements AccountDaoIf {
 		return hibernateTemplate;
 	}
 
-	@Resource
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
