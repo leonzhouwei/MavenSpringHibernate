@@ -3,7 +3,6 @@ package com.bjsxt.registration.action;
 import static org.junit.Assert.fail;
 import junit.framework.Assert;
 
-import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.bjsxt.common.Define;
@@ -14,7 +13,7 @@ public class AccountActionTest {
 
 	//@Test
 	public void testAdd() throws Exception {
-		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/beans.xml");
+		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(Define.SPRING_CONFIG_FILES_PATH);
 		final String username = "b";
 		final String password = "b";
 		final String password2 = "b";

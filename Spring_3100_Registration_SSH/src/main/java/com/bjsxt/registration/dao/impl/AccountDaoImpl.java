@@ -1,28 +1,38 @@
 package com.bjsxt.registration.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.stereotype.Component;
 
 import com.bjsxt.registration.dao.AccountDaoIf;
 import com.bjsxt.registration.model.Account;
 
-@Component("accountDao")
 public class AccountDaoImpl implements AccountDaoIf {
 
 	private HibernateTemplate hibernateTemplate;
+	private Map<String, String> hqls = new HashMap<String, String>();
+	
+	public List<Account> getAccounts() {
+		return (List<Account>) hibernateTemplate.find(hqls.get("HQL_GET_ACCOUNTS"));
+	}
 
 	public void save(Account account) {
 		hibernateTemplate.save(account);
-
 	}
 
 	public boolean checkUserExistsWithName(String username) {
-		List<Account> accounts = hibernateTemplate.find("from Account account where account.username = '" + username + "'");
-
+		List<Account> accounts = (List<Account>)
+			hibernateTemplate
+			.findByNamedParam(
+				hqls.get("HQL_GET_ACCOUNTS_BY_USERNAME"),
+				"username",
+				username
+			);
+		
 		if (accounts != null && accounts.size() > 0) {
 			return true;
 		}
@@ -36,6 +46,14 @@ public class AccountDaoImpl implements AccountDaoIf {
 	@Resource
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
+	}
+
+	public Map<String, String> getHqls() {
+		return hqls;
+	}
+
+	public void setHqls(Map<String, String> hqls) {
+		this.hqls = hqls;
 	}
 
 }

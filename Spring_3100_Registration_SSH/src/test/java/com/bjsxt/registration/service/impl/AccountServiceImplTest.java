@@ -6,6 +6,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.bjsxt.common.Define;
 import com.bjsxt.registration.service.AccountServiceIf;
 import com.bjsxt.registration.web.dto.AccountInfo;
 
@@ -13,7 +14,7 @@ public class AccountServiceImplTest {
 
 	//@Test
 	public void testExists() throws Exception {
-		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/beans.xml");
+		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(Define.SPRING_CONFIG_FILES_PATH);
 		final String username = "admin";
 		final String password = "admin";
 		final String password2 = "admin";
