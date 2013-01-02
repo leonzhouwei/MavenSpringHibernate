@@ -3,27 +3,27 @@ package com.bjsxt.service;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
-import com.bjsxt.dao.AccountDAO;
+import com.bjsxt.dao.AccountDao;
 import com.bjsxt.model.Account;
 
 @Component
 public class AccountService {
 
-	private AccountDAO accountDAO;
+	private AccountDao accountDao;
 
 	public void add(Account account) {
-		accountDAO.save(account);
+		accountDao.save(account);
 		// e.g. write into database table logger a record to record the save()
 		// method upper
 	}
 
-	public AccountDAO getAccountDAO() {
-		return accountDAO;
+	public AccountDao getAccountDao() {
+		return accountDao;
 	}
 
-	@Resource(name = "accountDAO")
-	public void setAccountDAO(AccountDAO accountDAO) {
-		this.accountDAO = accountDAO;
+	@Resource(name = "accountDao")
+	public void setAccountDao(AccountDao accountDao) {
+		this.accountDao = accountDao;
 	}
 
 	public void init() {
