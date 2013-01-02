@@ -1,5 +1,7 @@
 package com.bjsxt.registration.web.dto;
 
+import com.bjsxt.registration.model.Account;
+
 public class AccountInfo {
 	
 	private String username;
@@ -8,6 +10,12 @@ public class AccountInfo {
 	
 	public AccountInfo() {
 		
+	}
+	
+	public AccountInfo(Account account) {
+		username = account.getUsername();
+		password = account.getPassword();
+		password2 = null;
 	}
 
 	public String getUsername() {
@@ -34,4 +42,20 @@ public class AccountInfo {
 		this.password2 = password2;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(AccountInfo.class.getName());
+		sb.append(":");
+		sb.append("(");
+		sb.append(username);
+		sb.append(", ");
+		sb.append(password);
+		sb.append(", ");
+		sb.append(password2);
+		sb.append(")");
+		
+		return sb.toString();
+	}
+	
 }

@@ -8,10 +8,15 @@
 </head>
 
 <body>
-	<s:iterator value="accounts">
-		<s:property value="username" />
-	</s:iterator>
-	<s:debug>
-	</s:debug>
+    <form method="post" action="account_list">
+        <input type="submit" value="查询" />
+        <br>
+        <s:iterator value="accounts">
+            用户名：<s:property value="username" /><br>
+            密码：<s:property value="password" /><br>
+        </s:iterator>
+        <s:debug>
+        </s:debug>
+    </form>
 </body>
 </html>

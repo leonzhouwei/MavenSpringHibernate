@@ -57,8 +57,9 @@
 
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-			<tx:method name="exists" read-only="true" />
 			<tx:method name="add*" propagation="REQUIRED" />
+            <tx:method name="exists" read-only="true" />
+			<tx:method name="list*" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
 	

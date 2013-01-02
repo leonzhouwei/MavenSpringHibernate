@@ -1,8 +1,10 @@
 package com.bjsxt.registration.action;
 
-import static org.junit.Assert.fail;
+import java.util.List;
+
 import junit.framework.Assert;
 
+import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.bjsxt.common.Define;
@@ -35,9 +37,17 @@ public class AccountActionTest {
 		}
 	}
 
-	// @Test
-	public void testList() {
-		fail("Not yet implemented");
+	//@Test
+	public void testList() throws Exception {
+		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(Define.SPRING_CONFIG_FILES_PATH);
+		AccountAction accountAction = (AccountAction) appContext.getBean("accountAction");
+		
+		accountAction.list();
+		List<AccountInfo> accountInfoList = accountAction.getAccounts();
+		final int size = accountInfoList.size();
+		for (int i = 0; i < size; ++i) {
+			System.out.println(accountInfoList.get(i).toString());
+		}
 	}
 
 }

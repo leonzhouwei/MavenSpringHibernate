@@ -1,6 +1,7 @@
 package com.bjsxt.registration.service.impl;
 
-import static org.junit.Assert.fail;
+import java.util.List;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -30,8 +31,8 @@ public class AccountServiceImplTest {
 	}
 
 	//@Test
-	public void testAdd() {
-		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/beans.xml");
+	public void testAdd() throws Exception {
+		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(Define.SPRING_CONFIG_FILES_PATH);
 		final String username = "admin";
 		final String password = "admin";
 		final String password2 = "admin";
@@ -42,12 +43,17 @@ public class AccountServiceImplTest {
 		accountInfo.setPassword(password);
 		accountInfo.setPassword2(password2);
 		
-		try {
-			accountService.add(accountInfo);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
+		accountService.add(accountInfo);
+	}
+	
+	//@Test
+	public void testList() throws Exception {
+		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(Define.SPRING_CONFIG_FILES_PATH);
+		AccountServiceIf accountService = (AccountServiceIf) appContext.getBean("accountService");
+		List<AccountInfo> accountInfoList = accountService.list();
+		final int size = accountInfoList.size();
+		for (int i = 0; i < size; ++i) {
+			System.out.println(accountInfoList.get(i).toString());
 		}
 	}
 

@@ -10,8 +10,9 @@
 
 	<package name="registration" extends="struts-default">
 		<action name="account_*" class="accountAction" method="{1}">
-			<result name="success">/jsp/account/account_success.jsp</result>
+		    <result name="list">/jsp/account/admin/account_list.jsp</result>
 			<result name="fail">/jsp/account/account_fail.jsp</result>
+			<result name="success">/jsp/account/account_success.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -58,17 +58,32 @@ public class AccountAction extends ActionSupport implements ModelDriven {
 			}
 			System.out.println("username: " + username + ", password: " + password + ", password2: " + password2);
 			accountService.add(accountInfo);
+			result = Define.SUCCESS;
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			message = e.getMessage();
+			result = Define.FAIL;
 		}
 		
-		return Define.SUCCESS;
+		return result;
 	}
 	
 	public String list() {
-		return Define.FAIL;
+		String result = null;
+		try {			
+			accounts = accountService.list();
+			result = Define.LIST;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			message = e.getMessage();
+			result = Define.FAIL;
+		}
+		
+		return result;
 	}
 	
 	public AccountServiceIf getAccountService() {
