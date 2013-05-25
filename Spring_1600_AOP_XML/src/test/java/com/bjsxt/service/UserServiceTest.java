@@ -16,6 +16,7 @@ public class UserServiceTest {
 		UserService service = (UserService)ctx.getBean("userService");
 		System.out.println(service.getClass());
 		service.add(new User());
+		service.delete(new User());
 	}
 
 }

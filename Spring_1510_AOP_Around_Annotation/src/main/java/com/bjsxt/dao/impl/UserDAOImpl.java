@@ -20,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public void delete(User user) {
-		System.out.println("user deleted!");
+		System.out.println("user deleted!!!!!!");
 	}
 
 }

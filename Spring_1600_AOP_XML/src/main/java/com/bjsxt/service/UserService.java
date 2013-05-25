@@ -18,6 +18,11 @@ public class UserService {
 	public void add(User user) {
 		userDAO.save(user);
 	}
+	
+	public void delete(User user) {
+		userDAO.delete(user);
+	}
+	
 	public UserDAO getUserDAO() {
 		return userDAO;
 	}

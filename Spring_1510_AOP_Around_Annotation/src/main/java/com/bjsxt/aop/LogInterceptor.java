@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogInterceptor {
 	@Pointcut(
-		"execution(public * com.bjsxt.service..*.add(..)) || " +
+		"execution(public * com.bjsxt.service..*.add(..)) or " +
 		"execution(public * com.bjsxt.service..*.delete(..))"
 	)
 	public void myMethod(){};
