@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.example</groupId>
-	<artifactId>Spring_3110_Registration_SSH</artifactId>
+	<artifactId>Spring_3200_Registration_SSH</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Spring_3110_Registration_SSH Maven Webapp</name>
+	<name>Spring_3200_Registration_SSH Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -211,7 +211,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>Spring_3110_Registration_SSH</finalName>
+		<finalName>Spring_3200_Registration_SSH</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
