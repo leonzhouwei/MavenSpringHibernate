@@ -13,6 +13,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springframework.version>3.1.1.RELEASE</springframework.version>
+		<aspectj.version>1.7.0</aspectj.version>
 	</properties>
 
 	<dependencies>
@@ -88,12 +89,12 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>1.7.0</version>
+			<version>${aspectj.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.7.0</version>
+			<version>${aspectj.version}</version>
 		</dependency>
 	</dependencies>
 
