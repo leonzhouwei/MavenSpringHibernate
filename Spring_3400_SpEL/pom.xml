@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>Spring_3300_JUnit_Spring</artifactId>
+	<artifactId>Spring_3400_SpEL</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Spring_3300_JUnit_Spring</name>
+	<name>Spring_3400_SpEL</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -99,7 +99,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>Spring_3300_JUnit_Spring</finalName>
+		<finalName>Spring_3400_SpEL</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
