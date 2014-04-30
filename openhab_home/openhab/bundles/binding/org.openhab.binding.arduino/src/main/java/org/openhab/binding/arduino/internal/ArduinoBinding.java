@@ -18,13 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The swiss army knife binding which executes given commands on the commandline.
- * It could act as the opposite of WoL and sends the shutdown command to servers.
- * Or switches of WLAN connectivity if a scene "sleeping" is activated.
- * <p>
- * <i>Note</i>: when using 'ssh' you should use private key authorization since
- * the password cannot be read from commandline. The given user should have the
- * necessary permissions.
  * 
  * @author 
  * @since 
