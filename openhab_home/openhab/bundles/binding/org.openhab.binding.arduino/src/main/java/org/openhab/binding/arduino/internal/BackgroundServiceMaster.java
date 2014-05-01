@@ -31,6 +31,8 @@ final class BackgroundServiceMaster {
 						List<String> names = abp.getPollItemNames();
 						for (String name : names) {
 							logger.warn("oops: " + name + ", " + abp.getBindingConfig(name).toString());
+							BackgroundService bs = new BackgroundService(name, abp.getBindingConfig(name), eventPublisher);
+							bs.start();
 						}
 					}
 				};
