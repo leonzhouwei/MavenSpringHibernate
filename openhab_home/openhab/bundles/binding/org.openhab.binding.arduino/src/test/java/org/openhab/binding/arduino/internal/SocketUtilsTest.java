@@ -17,11 +17,19 @@ public class SocketUtilsTest {
 	}
 
 	@Test
-	public void testSendViaTimeoutUDPSocket() throws IOException {
+	public void testSendViaUDPSocket() throws IOException {
 		final String ip = "localhost";
 		final int port = 8081;
 		final String data = "led13:0";
 		SocketUtils.sendViaUDPSocket(ip, port, data);
+	}
+	
+	@Test
+	public void testSendViaTimeoutUDPSocket() throws IOException {
+		final String ip = "localhost";
+		final int port = 8081;
+		final String data = "temperature";
+		SocketUtils.sendAndReceiveViaUDPSocket(ip, port, 5000, data);
 	}
 
 }

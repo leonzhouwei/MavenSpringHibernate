@@ -34,7 +34,7 @@ final class BackgroundService {
 				int port = abc.getPort();
 				String send = abc.getDeviceName();
 				try {
-					String receive = SocketUtils.sendAndReceiveViaUDPSocket(ip, port, send, 5000);
+					String receive = SocketUtils.sendAndReceiveViaUDPSocket(ip, port, 5000, send);
 					if (receive != null) {
 						receive = receive.trim();
 						DecimalType newState = new DecimalType(receive);
