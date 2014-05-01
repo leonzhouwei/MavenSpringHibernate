@@ -38,6 +38,7 @@ final class BackgroundServiceMaster {
 				};
 				thread = new Thread(r);
 				thread.start();
+				logger.warn("oops: background service master started");
 			}	
 		}
 	}

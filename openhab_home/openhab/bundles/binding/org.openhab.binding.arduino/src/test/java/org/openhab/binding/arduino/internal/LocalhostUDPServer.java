@@ -6,6 +6,8 @@ import java.net.InetAddress;
 
 public final class LocalhostUDPServer {
 	
+	private static int temperature = 0;
+	
 	public static void main(String[] args) {
 		DatagramSocket serverSocket = null;
 		try {
@@ -46,7 +48,8 @@ public final class LocalhostUDPServer {
 		}
 		
 		if (data.startsWith("temperature")) {
-			return "temperature:25";
+			temperature += 1;
+			return "" + temperature;
 		}
 		
 		return null;

@@ -30,25 +30,30 @@ final class BackgroundService {
 		Runnable r = new Runnable() {
 			@Override
 			public void run() {
-				String ip = abc.getIp();
-				int port = abc.getPort();
-				String send = abc.getDeviceName();
-				try {
-					String receive = SocketUtils.sendAndReceiveViaUDPSocket(ip, port, 5000, send);
-					if (receive != null) {
-						receive = receive.trim();
-						DecimalType newState = new DecimalType(receive);
-						ep.postUpdate(itemName, newState);
+				while (true) {
+					String ip = abc.getIp();
+					int port = abc.getPort();
+					String send = abc.getDeviceName();
+					try {
+						logger.warn("oops: will send " + send + " to " + ip + ":" + port);
+						String receive = SocketUtils.sendAndReceiveViaUDPSocket(ip, port, 5000, send);
+						logger.warn("oops: received " + receive + " from " + ip + ":" + port);
+						if (receive != null) {
+							receive = receive.trim();
+							DecimalType newState = new DecimalType(receive);
+							ep.postUpdate(itemName, newState);
+						}
+					} catch (IOException e) {
+						logger.warn("", e);
 					}
-				} catch (IOException e) {
-					logger.warn("", e);
+					pause();
 				}
-				pause();
 			}
 		};
 		thread = new Thread(r);
 		thread.setDaemon(true);
 		thread.start();
+		logger.warn("oops: background service for " + itemName + " started");
 	}
 	
 	private void pause() {
