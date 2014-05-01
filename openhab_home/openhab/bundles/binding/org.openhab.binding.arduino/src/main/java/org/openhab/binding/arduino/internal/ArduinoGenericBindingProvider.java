@@ -38,8 +38,6 @@ import org.slf4j.LoggerFactory;
 public class ArduinoGenericBindingProvider extends AbstractGenericBindingProvider implements ArduinoBindingProvider {
 	private static final Logger logger = LoggerFactory.getLogger(ArduinoGenericBindingProvider.class);
 	
-	private boolean bindingConfigProcessDone = false;
-	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -75,9 +73,6 @@ public class ArduinoGenericBindingProvider extends AbstractGenericBindingProvide
 			logger.warn("", e);
 		}
 		logger.info("oops: arduino binding config parse end");
-		synchronized (this) {
-			bindingConfigProcessDone = true;
-		}
 	}
 	
 	@Override
@@ -88,13 +83,6 @@ public class ArduinoGenericBindingProvider extends AbstractGenericBindingProvide
 			abc = (ArduinoBindingConfigImpl) bc;
 		}
 		return abc;
-	}
-
-	@Override
-	public boolean isBindingConfigProcessDone() {
-		synchronized (this) {
-			return bindingConfigProcessDone;
-		}
 	}
 
 	@Override

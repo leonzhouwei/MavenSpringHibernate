@@ -91,6 +91,7 @@ public class ArduinoBinding extends AbstractBinding<ArduinoBindingProvider> {
 	
 	@Override
 	public void allBindingsChanged(BindingProvider provider) {
+		super.allBindingsChanged(provider);
 		for (BindingProvider bp : providers) {
 			if (bp instanceof ArduinoBindingProvider) {
 				ArduinoBindingProvider abp = (ArduinoBindingProvider) bp;

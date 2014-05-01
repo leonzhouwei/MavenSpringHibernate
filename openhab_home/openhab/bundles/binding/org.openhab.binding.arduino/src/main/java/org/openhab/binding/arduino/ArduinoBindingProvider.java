@@ -26,8 +26,6 @@ public interface ArduinoBindingProvider extends BindingProvider {
 	
 	public ArduinoBindingConfig getBindingConfig(String itemName);
 	
-	public boolean isBindingConfigProcessDone();
-	
 	public List<String> getPollItemNames();
 	
 }

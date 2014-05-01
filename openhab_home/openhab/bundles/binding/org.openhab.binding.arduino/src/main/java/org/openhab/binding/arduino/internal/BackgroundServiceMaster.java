@@ -16,7 +16,7 @@ final class BackgroundServiceMaster {
 	private Thread thread;
 	
 	public BackgroundServiceMaster(ArduinoBindingProvider abp, EventPublisher eventPublisher) {
-		logger.warn("oops");
+		logger.warn("oops: " + eventPublisher);
 		this.eventPublisher = eventPublisher;
 		this.abp = abp;
 	}
@@ -27,17 +27,6 @@ final class BackgroundServiceMaster {
 				Runnable r = new Runnable() {
 					@Override
 					public void run() {
-						while (true) {
-							if (abp.isBindingConfigProcessDone() == true) {
-								break;
-							}
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						}
 						// find the items demanding polling
 						List<String> names = abp.getPollItemNames();
 						for (String name : names) {
