@@ -19,6 +19,7 @@ final class SocketUtils {
 	}
 	
 	static String sendAndReceiveViaUDPSocket(String ip, int port, int timeoutMillis, String send) throws IOException {
+		String received = null;
 		DatagramSocket clientSocket = null;
 		try {
 			InetAddress addr = InetAddress.getByName(ip);
@@ -34,12 +35,13 @@ final class SocketUtils {
 			DatagramPacket receivePacket = new DatagramPacket(receiveData,
 					receiveData.length);
 			clientSocket.receive(receivePacket);
+			received = new String(receiveData, Constants.UTF_8);
 		} finally {
 			if (clientSocket != null) {
 				clientSocket.close();
 			}
 		}
-		return null;
+		return received;
 	}
 	
 }

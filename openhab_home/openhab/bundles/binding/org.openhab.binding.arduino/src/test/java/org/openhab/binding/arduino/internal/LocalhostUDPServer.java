@@ -4,7 +4,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public final class ArduinoUDPServer {
+public final class LocalhostUDPServer {
 	
 	public static void main(String[] args) {
 		DatagramSocket serverSocket = null;

@@ -16,7 +16,7 @@ public class SocketUtilsTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
+//	@Test
 	public void testSendViaUDPSocket() throws IOException {
 		final String ip = "localhost";
 		final int port = 8081;
@@ -24,12 +24,13 @@ public class SocketUtilsTest {
 		SocketUtils.sendViaUDPSocket(ip, port, data);
 	}
 	
-	@Test
+//	@Test
 	public void testSendViaTimeoutUDPSocket() throws IOException {
 		final String ip = "localhost";
 		final int port = 8081;
 		final String data = "temperature";
-		SocketUtils.sendAndReceiveViaUDPSocket(ip, port, 5000, data);
+		String receive = SocketUtils.sendAndReceiveViaUDPSocket(ip, port, 5000, data);
+		System.out.println(receive);
 	}
 
 }
