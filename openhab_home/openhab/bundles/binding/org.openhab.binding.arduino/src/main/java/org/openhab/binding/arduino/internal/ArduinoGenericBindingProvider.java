@@ -8,6 +8,12 @@
  */
 package org.openhab.binding.arduino.internal;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+import org.openhab.binding.arduino.ArduinoBindingConfig;
 import org.openhab.binding.arduino.ArduinoBindingProvider;
 import org.openhab.core.binding.BindingConfig;
 import org.openhab.core.items.Item;
@@ -31,6 +37,8 @@ import org.slf4j.LoggerFactory;
  */
 public class ArduinoGenericBindingProvider extends AbstractGenericBindingProvider implements ArduinoBindingProvider {
 	private static final Logger logger = LoggerFactory.getLogger(ArduinoGenericBindingProvider.class);
+	
+	private boolean bindingConfigProcessDone = false;
 	
 	/**
 	 * {@inheritDoc}
@@ -67,6 +75,9 @@ public class ArduinoGenericBindingProvider extends AbstractGenericBindingProvide
 			logger.warn("", e);
 		}
 		logger.info("oops: arduino binding config parse end");
+		synchronized (this) {
+			bindingConfigProcessDone = true;
+		}
 	}
 	
 	@Override
@@ -77,6 +88,28 @@ public class ArduinoGenericBindingProvider extends AbstractGenericBindingProvide
 			abc = (ArduinoBindingConfigImpl) bc;
 		}
 		return abc;
+	}
+
+	@Override
+	public boolean isBindingConfigProcessDone() {
+		synchronized (this) {
+			return bindingConfigProcessDone;
+		}
+	}
+
+	@Override
+	public List<String> getPollItemNames() {
+		List<String> ret = new ArrayList<String>();
+		Collection<String> allNames = getItemNames();
+		Iterator<String> it = allNames.iterator();
+		while (it.hasNext()) {
+			String name = it.next();
+			ArduinoBindingConfig abc = getBindingConfig(name);
+			if (abc != null && abc.canPoll()) {
+				ret.add(name);
+			}
+		}
+		return ret;
 	}
 
 }

@@ -81,12 +81,23 @@ public class ArduinoBinding extends AbstractBinding<ArduinoBindingProvider> {
 	ArduinoBindingConfig getBindingConfig(String itemName) {
 		ArduinoBindingConfig abc = null;
 		for (BindingProvider bp : providers) {
-			if (bp instanceof ArduinoGenericBindingProvider) {
+			if (bp instanceof ArduinoBindingProvider) {
 				ArduinoGenericBindingProvider agbp = (ArduinoGenericBindingProvider) bp;
 				abc = agbp.getBindingConfig(itemName);
 			}
 		}
 		return abc;
+	}
+	
+	@Override
+	public void allBindingsChanged(BindingProvider provider) {
+		for (BindingProvider bp : providers) {
+			if (bp instanceof ArduinoBindingProvider) {
+				ArduinoBindingProvider abp = (ArduinoBindingProvider) bp;
+				BackgroundServiceMaster master = new BackgroundServiceMaster(abp, eventPublisher);
+				master.start();
+			}
+		}
 	}
 	
 }

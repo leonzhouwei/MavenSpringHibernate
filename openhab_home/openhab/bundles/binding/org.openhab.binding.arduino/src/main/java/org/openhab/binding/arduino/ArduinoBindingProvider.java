@@ -8,6 +8,8 @@
  */
 package org.openhab.binding.arduino;
 
+import java.util.List;
+
 import org.openhab.core.binding.BindingProvider;
 
 /**
@@ -23,5 +25,9 @@ import org.openhab.core.binding.BindingProvider;
 public interface ArduinoBindingProvider extends BindingProvider {
 	
 	public ArduinoBindingConfig getBindingConfig(String itemName);
+	
+	public boolean isBindingConfigProcessDone();
+	
+	public List<String> getPollItemNames();
 	
 }
